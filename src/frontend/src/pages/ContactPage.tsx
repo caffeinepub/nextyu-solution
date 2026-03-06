@@ -48,15 +48,15 @@ const CONTACT_INFO = [
   {
     icon: SiWhatsapp,
     label: "WhatsApp",
-    value: "+1 234 567 890",
-    href: "https://wa.me/1234567890",
-    color: "oklch(0.72 0.18 55)",
+    value: "+91 9360193948",
+    href: "https://wa.me/919360193948",
+    color: "oklch(0.65 0.18 145)",
   },
   {
     icon: Mail,
     label: "Email",
-    value: "hello@nextyusolution.com",
-    href: "mailto:hello@nextyusolution.com",
+    value: "nextyusolution@gmail.com",
+    href: "mailto:nextyusolution@gmail.com",
     color: "oklch(0.68 0.24 25)",
   },
   {
@@ -72,7 +72,7 @@ const SOCIAL_LINKS = [
   {
     icon: SiInstagram,
     label: "Instagram",
-    href: "https://instagram.com",
+    href: "https://www.instagram.com/nextyu_solution/",
     color: "oklch(0.72 0.2 40)",
   },
   {

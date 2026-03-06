@@ -1,3 +1,6 @@
+import ChatbotWidget from "@/components/ChatbotWidget";
+import FloatingContactButtons from "@/components/FloatingContactButtons";
+import MouseTrailEffect from "@/components/MouseTrailEffect";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import { Toaster } from "@/components/ui/sonner";
@@ -18,11 +21,14 @@ import {
 function RootLayout() {
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
+      <MouseTrailEffect />
       <Navbar />
       <div className="flex-1">
         <Outlet />
       </div>
       <Footer />
+      <FloatingContactButtons />
+      <ChatbotWidget />
       <Toaster richColors position="bottom-right" />
     </div>
   );
