@@ -12,16 +12,18 @@ interface Particle {
 }
 
 const PARTICLE_COLORS = [
-  "220, 38, 38", // crimson red
-  "220, 38, 38", // crimson red (weighted)
-  "239, 68, 68", // lighter red
-  "255, 100, 50", // orange-red
-  "255, 60, 30", // deep orange-red
+  "56, 189, 248", // cyan (sky-400)
+  "56, 189, 248", // cyan (weighted)
+  "125, 211, 252", // light cyan
+  "139, 92, 246", // purple (violet-500)
+  "196, 115, 255", // light purple
   "255, 255, 255", // white sparkle
 ];
 
 const MAX_PARTICLES = 80;
 const TRAIL_LENGTH = 10;
+// How long (ms) after the last mouse move before we stop the animation loop
+const IDLE_TIMEOUT_MS = 150;
 
 export default function MouseTrailEffect() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -31,9 +33,13 @@ export default function MouseTrailEffect() {
   const trailRef = useRef<{ x: number; y: number }[]>([]);
   const rafRef = useRef<number>(0);
   const lastSpawnRef = useRef<number>(0);
+  // Whether the animation loop is currently running
+  const isRunningRef = useRef(false);
+  // Timestamp of the last mousemove event
+  const lastMoveTimeRef = useRef<number>(0);
 
   const spawnParticles = useCallback((x: number, y: number, now: number) => {
-    if (now - lastSpawnRef.current < 30) return; // throttle: ~33fps spawn rate
+    if (now - lastSpawnRef.current < 30) return;
     lastSpawnRef.current = now;
 
     const count = Math.random() < 0.5 ? 1 : 2;
@@ -49,7 +55,7 @@ export default function MouseTrailEffect() {
         x: x + (Math.random() - 0.5) * 8,
         y: y + (Math.random() - 0.5) * 8,
         vx: Math.cos(angle) * speed,
-        vy: Math.sin(angle) * speed - 0.4, // slight upward drift
+        vy: Math.sin(angle) * speed - 0.4,
         radius: 1.2 + Math.random() * 1.8,
         alpha: 0.55 + Math.random() * 0.25,
         decay: 0.012 + Math.random() * 0.01,
@@ -65,29 +71,46 @@ export default function MouseTrailEffect() {
       const ctx = canvas.getContext("2d");
       if (!ctx) return;
 
+      // Stop the loop if the mouse has been idle for too long
+      const timeSinceMove = timestamp - lastMoveTimeRef.current;
+      if (
+        timeSinceMove > IDLE_TIMEOUT_MS &&
+        particlesRef.current.length === 0
+      ) {
+        // Clear canvas, hide glow, and stop the loop
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const glow = glowRef.current;
+        if (glow) glow.style.opacity = "0";
+        isRunningRef.current = false;
+        return;
+      }
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Draw light trail
+      // Only spawn new particles while mouse is actively moving
+      const mouseIsActive = timeSinceMove <= IDLE_TIMEOUT_MS;
+
+      // Draw light trail (only when mouse is active)
       const trail = trailRef.current;
-      if (trail.length > 1) {
+      if (mouseIsActive && trail.length > 1) {
         for (let i = 1; i < trail.length; i++) {
           const progress = i / trail.length;
           const alpha = progress * 0.18;
           ctx.beginPath();
           ctx.moveTo(trail[i - 1].x, trail[i - 1].y);
           ctx.lineTo(trail[i].x, trail[i].y);
-          ctx.strokeStyle = `rgba(220, 38, 38, ${alpha})`;
+          ctx.strokeStyle = `rgba(56, 189, 248, ${alpha})`;
           ctx.lineWidth = progress * 2;
           ctx.lineCap = "round";
           ctx.stroke();
         }
       }
 
-      // Update and draw particles
+      // Update and draw existing particles (let them finish their lifecycle)
       particlesRef.current = particlesRef.current.filter((p) => {
         p.x += p.vx;
         p.y += p.vy;
-        p.vy -= 0.015; // extra upward acceleration (gravity in reverse)
+        p.vy -= 0.015;
         p.alpha -= p.decay;
 
         if (p.alpha <= 0) return false;
@@ -99,10 +122,12 @@ export default function MouseTrailEffect() {
         return true;
       });
 
-      // Spawn particles at current mouse position
-      const { x, y } = mouseRef.current;
-      if (x > 0 && y > 0) {
-        spawnParticles(x, y, timestamp);
+      // Only spawn new particles if mouse is actively moving
+      if (mouseIsActive) {
+        const { x, y } = mouseRef.current;
+        if (x > 0 && y > 0) {
+          spawnParticles(x, y, timestamp);
+        }
       }
 
       rafRef.current = requestAnimationFrame(animate);
@@ -110,12 +135,21 @@ export default function MouseTrailEffect() {
     [spawnParticles],
   );
 
+  // Start the animation loop only if it isn't already running
+  const startLoop = useCallback(() => {
+    if (!isRunningRef.current) {
+      isRunningRef.current = true;
+      const glow = glowRef.current;
+      if (glow) glow.style.opacity = "1";
+      rafRef.current = requestAnimationFrame(animate);
+    }
+  }, [animate]);
+
   useEffect(() => {
     const canvas = canvasRef.current;
     const glow = glowRef.current;
     if (!canvas || !glow) return;
 
-    // Size the canvas to viewport
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -123,12 +157,12 @@ export default function MouseTrailEffect() {
     resize();
     window.addEventListener("resize", resize);
 
-    // Mouse move handler
     const handleMouseMove = (e: MouseEvent) => {
       const { clientX: x, clientY: y } = e;
       mouseRef.current = { x, y };
+      lastMoveTimeRef.current = performance.now();
 
-      // Update glow orb position (offset by half its size so it's centered)
+      // Update glow orb position
       glow.style.transform = `translate(${x - 250}px, ${y - 250}px)`;
 
       // Update trail buffer
@@ -136,9 +170,11 @@ export default function MouseTrailEffect() {
       if (trailRef.current.length > TRAIL_LENGTH) {
         trailRef.current.shift();
       }
+
+      // Kick off the loop on first move (or after idle)
+      startLoop();
     };
 
-    // Hide effects when mouse leaves the window
     const handleMouseLeave = () => {
       mouseRef.current = { x: -1000, y: -1000 };
       trailRef.current = [];
@@ -147,8 +183,7 @@ export default function MouseTrailEffect() {
     document.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mouseleave", handleMouseLeave);
 
-    // Start animation loop
-    rafRef.current = requestAnimationFrame(animate);
+    // Do NOT start the animation loop on mount — wait for first mousemove
 
     return () => {
       window.removeEventListener("resize", resize);
@@ -156,11 +191,11 @@ export default function MouseTrailEffect() {
       document.removeEventListener("mouseleave", handleMouseLeave);
       cancelAnimationFrame(rafRef.current);
     };
-  }, [animate]);
+  }, [startLoop]);
 
   return (
     <>
-      {/* Soft glow orb that follows the mouse */}
+      {/* Soft glow orb that follows the mouse — hidden until first move */}
       <div
         ref={glowRef}
         aria-hidden="true"
@@ -172,16 +207,17 @@ export default function MouseTrailEffect() {
           height: 500,
           borderRadius: "50%",
           background:
-            "radial-gradient(circle, rgba(220,38,38,0.09) 0%, rgba(239,68,68,0.04) 40%, transparent 70%)",
+            "radial-gradient(circle, rgba(56,189,248,0.09) 0%, rgba(139,92,246,0.04) 40%, transparent 70%)",
           pointerEvents: "none",
           zIndex: 0,
           willChange: "transform",
-          transition: "transform 0.18s ease-out",
+          transition: "transform 0.18s ease-out, opacity 0.3s ease",
           transform: "translate(-1000px, -1000px)",
+          opacity: 0,
         }}
       />
 
-      {/* Canvas for particles + trail — decorative, pointer-events: none */}
+      {/* Canvas for particles + trail */}
       <canvas
         ref={canvasRef}
         style={{

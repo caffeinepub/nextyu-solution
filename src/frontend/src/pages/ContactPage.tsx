@@ -57,14 +57,14 @@ const CONTACT_INFO = [
     label: "Email",
     value: "nextyusolution@gmail.com",
     href: "mailto:nextyusolution@gmail.com",
-    color: "oklch(0.68 0.24 25)",
+    color: "oklch(0.72 0.22 220)",
   },
   {
     icon: MapPin,
     label: "Location",
     value: "Remote — Worldwide",
     href: null,
-    color: "oklch(0.72 0.2 40)",
+    color: "oklch(0.62 0.28 330)",
   },
 ];
 
@@ -73,19 +73,19 @@ const SOCIAL_LINKS = [
     icon: SiInstagram,
     label: "Instagram",
     href: "https://www.instagram.com/nextyu_solution/",
-    color: "oklch(0.72 0.2 40)",
+    color: "oklch(0.62 0.28 330)",
   },
   {
     icon: SiFacebook,
     label: "Facebook",
     href: "https://facebook.com",
-    color: "oklch(0.68 0.24 25)",
+    color: "oklch(0.72 0.22 220)",
   },
   {
     icon: SiLinkedin,
     label: "LinkedIn",
     href: "https://linkedin.com",
-    color: "oklch(0.65 0.22 10)",
+    color: "oklch(0.52 0.28 285)",
   },
   {
     icon: SiX,
@@ -139,9 +139,9 @@ export default function ContactPage() {
     <main className="pt-16">
       {/* ===== PAGE HERO ===== */}
       <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[oklch(0.06_0.01_15)] to-[oklch(0.08_0.008_15)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[oklch(0.06_0.01_270)] to-[oklch(0.08_0.01_270)]" />
         <div className="absolute inset-0 grid-bg opacity-30" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] blur-[150px] bg-[oklch(0.55_0.24_25/0.08)] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] blur-[150px] bg-[oklch(0.52_0.28_285/0.08)] pointer-events-none" />
 
         <div className="relative container mx-auto px-6 max-w-5xl text-center">
           <motion.div
@@ -149,7 +149,7 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[oklch(0.55_0.24_25/0.15)] border border-[oklch(0.55_0.24_25/0.3)] text-[oklch(0.78_0.18_35)] text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[oklch(0.52_0.28_285/0.15)] border border-[oklch(0.52_0.28_285/0.3)] text-[oklch(0.78_0.18_220)] text-sm font-medium mb-6">
               Let's Talk
             </div>
             <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-6">
@@ -231,7 +231,7 @@ export default function ContactPage() {
                           href={social.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-2.5 p-2.5 rounded-lg bg-[oklch(0.1_0.01_15)] hover:bg-[oklch(0.18_0.015_15)] transition-colors duration-200"
+                          className="flex items-center gap-2.5 p-2.5 rounded-lg bg-[oklch(0.09_0.012_270)] hover:bg-[oklch(0.18_0.018_270)] transition-colors duration-200"
                         >
                           <Icon size={14} style={{ color: social.color }} />
                           <span className="text-xs text-muted-foreground">
@@ -264,10 +264,10 @@ export default function ContactPage() {
                     animate={{ opacity: 1, scale: 1 }}
                     className="flex flex-col items-center justify-center py-14 text-center"
                   >
-                    <div className="w-16 h-16 rounded-full bg-[oklch(0.72_0.18_55/0.15)] flex items-center justify-center mb-4">
+                    <div className="w-16 h-16 rounded-full bg-[oklch(0.65_0.22_260/0.15)] flex items-center justify-center mb-4">
                       <CheckCircle2
                         size={32}
-                        className="text-[oklch(0.72_0.18_55)]"
+                        className="text-[oklch(0.72_0.22_220)]"
                       />
                     </div>
                     <h3 className="font-display font-bold text-xl mb-2">
@@ -279,7 +279,7 @@ export default function ContactPage() {
                     </p>
                     <Button
                       variant="outline"
-                      className="mt-6 border-[oklch(0.3_0.03_15)] text-foreground hover:bg-[oklch(0.55_0.24_25/0.1)]"
+                      className="mt-6 border-[oklch(0.3_0.04_270)] text-foreground hover:bg-[oklch(0.52_0.28_285/0.1)]"
                       onClick={() => setSubmitted(false)}
                     >
                       Send Another Message
@@ -304,7 +304,7 @@ export default function ContactPage() {
                           placeholder="John Doe"
                           required
                           data-ocid="contact.name_input"
-                          className="bg-[oklch(0.1_0.01_15)] border-[oklch(0.22_0.02_15)] focus:border-[oklch(0.55_0.24_25/0.6)] focus:ring-[oklch(0.55_0.24_25/0.3)] placeholder:text-muted-foreground/40"
+                          className="bg-[oklch(0.09_0.012_270)] border-[oklch(0.22_0.025_270)] focus:border-[oklch(0.52_0.28_285/0.6)] focus:ring-[oklch(0.52_0.28_285/0.3)] placeholder:text-muted-foreground/40"
                         />
                       </div>
                       <div className="space-y-1.5">
@@ -323,7 +323,7 @@ export default function ContactPage() {
                           placeholder="you@company.com"
                           required
                           data-ocid="contact.email_input"
-                          className="bg-[oklch(0.1_0.01_15)] border-[oklch(0.22_0.02_15)] focus:border-[oklch(0.55_0.24_25/0.6)] focus:ring-[oklch(0.55_0.24_25/0.3)] placeholder:text-muted-foreground/40"
+                          className="bg-[oklch(0.09_0.012_270)] border-[oklch(0.22_0.025_270)] focus:border-[oklch(0.52_0.28_285/0.6)] focus:ring-[oklch(0.52_0.28_285/0.3)] placeholder:text-muted-foreground/40"
                         />
                       </div>
                     </div>
@@ -344,7 +344,7 @@ export default function ContactPage() {
                         placeholder="e.g. Logo Design for my startup"
                         required
                         data-ocid="contact.subject_input"
-                        className="bg-[oklch(0.1_0.01_15)] border-[oklch(0.22_0.02_15)] focus:border-[oklch(0.55_0.24_25/0.6)] focus:ring-[oklch(0.55_0.24_25/0.3)] placeholder:text-muted-foreground/40"
+                        className="bg-[oklch(0.09_0.012_270)] border-[oklch(0.22_0.025_270)] focus:border-[oklch(0.52_0.28_285/0.6)] focus:ring-[oklch(0.52_0.28_285/0.3)] placeholder:text-muted-foreground/40"
                       />
                     </div>
 
@@ -365,7 +365,7 @@ export default function ContactPage() {
                         rows={5}
                         required
                         data-ocid="contact.message_input"
-                        className="bg-[oklch(0.1_0.01_15)] border-[oklch(0.22_0.02_15)] focus:border-[oklch(0.55_0.24_25/0.6)] focus:ring-[oklch(0.55_0.24_25/0.3)] placeholder:text-muted-foreground/40 resize-none"
+                        className="bg-[oklch(0.09_0.012_270)] border-[oklch(0.22_0.025_270)] focus:border-[oklch(0.52_0.28_285/0.6)] focus:ring-[oklch(0.52_0.28_285/0.3)] placeholder:text-muted-foreground/40 resize-none"
                       />
                     </div>
 
@@ -373,7 +373,7 @@ export default function ContactPage() {
                     {isError && (
                       <div
                         data-ocid="contact.error_state"
-                        className="flex items-center gap-2.5 p-3 rounded-lg bg-[oklch(0.62_0.22_25/0.1)] border border-[oklch(0.62_0.22_25/0.3)] text-sm text-[oklch(0.75_0.15_25)]"
+                        className="flex items-center gap-2.5 p-3 rounded-lg bg-[oklch(0.52_0.28_285/0.1)] border border-[oklch(0.52_0.28_285/0.3)] text-sm text-[oklch(0.75_0.15_220)]"
                       >
                         <AlertCircle size={15} />
                         Failed to send message. Please try again or contact us

@@ -31,68 +31,68 @@
 }
 
 /* ============================================
-   DESIGN TOKENS — NEXTYUSOLUTION DARK RED THEME
+   DESIGN TOKENS — NEXTYUSOLUTION CYAN/PURPLE/PINK THEME
    ============================================ */
 
 @layer base {
   :root {
     --radius: 0.75rem;
 
-    /* Dark-first design — deep black/charcoal core */
-    --background: 0.08 0.008 15;
-    --foreground: 0.96 0.008 15;
+    /* Dark-first design — deep dark with faint blue/purple tint */
+    --background: 0.07 0.01 270;
+    --foreground: 0.96 0.008 270;
 
-    --card: 0.12 0.012 15;
-    --card-foreground: 0.96 0.008 15;
+    --card: 0.12 0.015 270;
+    --card-foreground: 0.96 0.008 270;
 
-    --popover: 0.12 0.012 15;
-    --popover-foreground: 0.96 0.008 15;
+    --popover: 0.12 0.015 270;
+    --popover-foreground: 0.96 0.008 270;
 
-    /* Bold crimson red primary */
-    --primary: 0.58 0.24 25;
+    /* Cyan primary */
+    --primary: 0.60 0.26 220;
     --primary-foreground: 0.98 0 0;
 
-    --secondary: 0.16 0.015 15;
-    --secondary-foreground: 0.85 0.01 15;
+    --secondary: 0.16 0.018 270;
+    --secondary-foreground: 0.85 0.01 270;
 
-    --muted: 0.15 0.01 15;
-    --muted-foreground: 0.55 0.015 15;
+    --muted: 0.15 0.012 270;
+    --muted-foreground: 0.55 0.015 270;
 
-    /* Orange-red accent */
-    --accent: 0.68 0.2 40;
-    --accent-foreground: 0.08 0.008 15;
+    /* Purple accent */
+    --accent: 0.52 0.28 285;
+    --accent-foreground: 0.98 0 0;
 
     --destructive: 0.62 0.22 25;
     --destructive-foreground: 0.98 0 0;
 
-    --border: 0.22 0.02 15;
-    --input: 0.18 0.015 15;
-    --ring: 0.58 0.24 25;
+    --border: 0.22 0.025 270;
+    --input: 0.18 0.018 270;
+    --ring: 0.60 0.26 220;
 
     /* Charts */
-    --chart-1: 0.58 0.24 25;
-    --chart-2: 0.68 0.2 40;
-    --chart-3: 0.72 0.18 55;
-    --chart-4: 0.65 0.22 10;
-    --chart-5: 0.85 0.16 90;
+    --chart-1: 0.72 0.22 220;
+    --chart-2: 0.52 0.28 285;
+    --chart-3: 0.62 0.28 330;
+    --chart-4: 0.65 0.22 260;
+    --chart-5: 0.85 0.16 200;
 
     /* Sidebar */
-    --sidebar: 0.1 0.01 15;
-    --sidebar-foreground: 0.96 0.008 15;
-    --sidebar-primary: 0.58 0.24 25;
+    --sidebar: 0.09 0.012 270;
+    --sidebar-foreground: 0.96 0.008 270;
+    --sidebar-primary: 0.60 0.26 220;
     --sidebar-primary-foreground: 0.98 0 0;
-    --sidebar-accent: 0.18 0.015 15;
-    --sidebar-accent-foreground: 0.96 0.008 15;
-    --sidebar-border: 0.22 0.02 15;
-    --sidebar-ring: 0.58 0.24 25;
+    --sidebar-accent: 0.18 0.018 270;
+    --sidebar-accent-foreground: 0.96 0.008 270;
+    --sidebar-border: 0.22 0.025 270;
+    --sidebar-ring: 0.60 0.26 220;
 
     /* Custom brand tokens */
-    --red-glow: 0.58 0.24 25;
-    --orange-glow: 0.68 0.2 40;
-    --deep-red-glow: 0.45 0.22 15;
-    --surface-glass: 0.14 0.014 15;
-    --surface-elevated: 0.16 0.018 15;
-    --hero-bg: 0.06 0.01 15;
+    --cyan-glow: 0.72 0.22 220;
+    --purple-glow: 0.52 0.28 285;
+    --pink-glow: 0.62 0.28 330;
+    --surface-glass: 0.12 0.015 270;
+    --surface-elevated: 0.15 0.018 270;
+    --hero-bg: 0.06 0.01 270;
   }
 
   * {
@@ -117,36 +117,47 @@
    ============================================ */
 
 @layer utilities {
-  /* Gradient text — red to orange */
+  /* Gradient text — cyan to purple to pink */
   .gradient-text {
     background: linear-gradient(
       135deg,
-      oklch(0.68 0.24 25) 0%,
-      oklch(0.75 0.2 40) 50%,
-      oklch(0.72 0.18 55) 100%
+      oklch(0.72 0.22 220) 0%,
+      oklch(0.52 0.28 285) 50%,
+      oklch(0.62 0.28 330) 100%
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  /* Gradient text — deep red to crimson */
+  /* Gradient text — deep purple to pink */
   .gradient-text-bp {
     background: linear-gradient(
       135deg,
-      oklch(0.62 0.26 25) 0%,
-      oklch(0.55 0.24 10) 100%
+      oklch(0.52 0.28 285) 0%,
+      oklch(0.62 0.28 330) 100%
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  /* ── Neon animated gradient for brand name ── */
+  .neon-gradient-text {
+    background: linear-gradient(90deg, #00BFFF, #7C3AED, #D946EF, #00BFFF);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: neonShift 4s linear infinite;
+    filter: drop-shadow(0 0 12px rgba(0, 191, 255, 0.6)) drop-shadow(0 0 25px rgba(124, 58, 237, 0.4));
   }
 
   /* Glass card */
   .glass-card {
-    background: oklch(0.14 0.014 15 / 0.7);
+    background: oklch(0.12 0.015 270 / 0.7);
     backdrop-filter: blur(12px);
-    border: 1px solid oklch(0.3 0.03 15 / 0.4);
+    border: 1px solid oklch(0.3 0.04 270 / 0.4);
   }
 
   .glass-card-hover {
@@ -154,20 +165,20 @@
   }
 
   .glass-card-hover:hover {
-    border-color: oklch(0.58 0.24 25 / 0.6);
-    box-shadow: 0 0 30px oklch(0.58 0.24 25 / 0.18), 0 8px 32px oklch(0 0 0 / 0.4);
+    border-color: oklch(0.52 0.28 285 / 0.6);
+    box-shadow: 0 0 30px oklch(0.52 0.28 285 / 0.18), 0 8px 32px oklch(0 0 0 / 0.4);
     transform: translateY(-4px);
   }
 
-  /* Red glow button */
+  /* Cyan-to-purple glow button */
   .btn-glow {
-    background: linear-gradient(135deg, oklch(0.52 0.26 25), oklch(0.58 0.22 35));
-    box-shadow: 0 4px 20px oklch(0.58 0.24 25 / 0.45);
+    background: linear-gradient(135deg, oklch(0.60 0.26 220), oklch(0.52 0.28 285));
+    box-shadow: 0 4px 20px oklch(0.60 0.26 220 / 0.45);
     transition: box-shadow 0.3s ease, transform 0.2s ease, opacity 0.2s ease;
   }
 
   .btn-glow:hover {
-    box-shadow: 0 6px 30px oklch(0.58 0.24 25 / 0.65);
+    box-shadow: 0 6px 30px oklch(0.60 0.26 220 / 0.65);
     transform: translateY(-2px);
   }
 
@@ -179,7 +190,7 @@
   .section-divider {
     width: 60px;
     height: 3px;
-    background: linear-gradient(90deg, oklch(0.58 0.24 25), oklch(0.68 0.2 40));
+    background: linear-gradient(90deg, oklch(0.72 0.22 220), oklch(0.52 0.28 285));
     border-radius: 2px;
   }
 
@@ -204,7 +215,7 @@
     inset: 0;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(135deg, oklch(0.58 0.24 25 / 0.8), oklch(0.68 0.2 40 / 0.4), oklch(0.45 0.22 10 / 0.6));
+    background: linear-gradient(135deg, oklch(0.72 0.22 220 / 0.8), oklch(0.52 0.28 285 / 0.4), oklch(0.62 0.28 330 / 0.6));
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -224,8 +235,8 @@
 
   /* Pulse glow animation */
   @keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 20px oklch(0.58 0.24 25 / 0.3); }
-    50% { box-shadow: 0 0 40px oklch(0.58 0.24 25 / 0.6); }
+    0%, 100% { box-shadow: 0 0 20px oklch(0.72 0.22 220 / 0.3); }
+    50% { box-shadow: 0 0 40px oklch(0.72 0.22 220 / 0.6); }
   }
 
   .animate-pulse-glow {
@@ -252,14 +263,51 @@
   /* Grid pattern background */
   .grid-bg {
     background-image:
-      linear-gradient(oklch(0.3 0.03 15 / 0.08) 1px, transparent 1px),
-      linear-gradient(90deg, oklch(0.3 0.03 15 / 0.08) 1px, transparent 1px);
+      linear-gradient(oklch(0.3 0.04 270 / 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(0.3 0.04 270 / 0.08) 1px, transparent 1px);
     background-size: 60px 60px;
   }
 
   /* Dot pattern */
   .dot-pattern {
-    background-image: radial-gradient(oklch(0.4 0.05 25 / 0.15) 1px, transparent 1px);
+    background-image: radial-gradient(oklch(0.4 0.08 285 / 0.15) 1px, transparent 1px);
     background-size: 30px 30px;
+  }
+
+  /* ── Neon brand name shift animation ── */
+  @keyframes neonShift {
+    0%   { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
+  }
+
+  /* ── Circuit line traveling-light animation ── */
+  .circuit-line {
+    stroke-dasharray: 250;
+    stroke-dashoffset: 250;
+    animation: drawLine 3s linear infinite;
+  }
+
+  @keyframes drawLine {
+    0%   { stroke-dashoffset: 250; opacity: 0.3; }
+    50%  { stroke-dashoffset: 0;   opacity: 0.9; }
+    100% { stroke-dashoffset: -250; opacity: 0.3; }
+  }
+
+  /* ── Floating orb animation (hero background orbs) ── */
+  @keyframes floatOrb {
+    0%, 100% { transform: translateY(0px) scale(1);   opacity: 0.15; }
+    50%       { transform: translateY(-30px) scale(1.1); opacity: 0.28; }
+  }
+}
+
+/* ── Stat icon pulse animation ── */
+@layer utilities {
+  .stat-icon-pulse {
+    animation: statIconPulse 2.5s ease-in-out infinite;
+  }
+
+  @keyframes statIconPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50%       { transform: scale(1.08); opacity: 0.85; }
   }
 }

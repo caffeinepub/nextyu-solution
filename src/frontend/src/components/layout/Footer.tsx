@@ -6,7 +6,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-[oklch(0.06_0.01_15)] border-t border-[oklch(0.22_0.02_15)] overflow-hidden">
+    <footer className="relative bg-[oklch(0.06_0.01_270)] border-t border-[oklch(0.22_0.025_270)] overflow-hidden">
       {/* Background grid */}
       <div className="absolute inset-0 grid-bg opacity-50 pointer-events-none" />
 
@@ -16,9 +16,9 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-2.5 mb-4">
               <img
-                src="/assets/generated/logo-mark-transparent.dim_200x200.png"
+                src="/assets/uploads/WhatsApp-Image-2026-03-06-at-23.36.51-1.jpeg"
                 alt="NextYU Solution"
-                className="w-8 h-8 object-contain"
+                className="w-10 h-10 object-contain rounded-lg"
               />
               <span className="font-display font-bold text-xl tracking-tight">
                 <span className="gradient-text">NextYU</span>
@@ -32,10 +32,10 @@ export default function Footer() {
             {/* Social links */}
             <div className="flex items-center gap-3">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/nextyu_solution/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-lg bg-[oklch(0.14_0.014_15)] border border-[oklch(0.22_0.02_15)] text-muted-foreground hover:text-[oklch(0.68_0.24_25)] hover:border-[oklch(0.55_0.24_25/0.5)] transition-all duration-200"
+                className="p-2.5 rounded-lg bg-[oklch(0.14_0.015_270)] border border-[oklch(0.22_0.025_270)] text-muted-foreground hover:text-[oklch(0.72_0.22_220)] hover:border-[oklch(0.52_0.28_285/0.5)] transition-all duration-200"
               >
                 <SiInstagram size={16} />
               </a>
@@ -43,7 +43,7 @@ export default function Footer() {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-lg bg-[oklch(0.14_0.014_15)] border border-[oklch(0.22_0.02_15)] text-muted-foreground hover:text-[oklch(0.68_0.24_25)] hover:border-[oklch(0.55_0.24_25/0.5)] transition-all duration-200"
+                className="p-2.5 rounded-lg bg-[oklch(0.14_0.015_270)] border border-[oklch(0.22_0.025_270)] text-muted-foreground hover:text-[oklch(0.72_0.22_220)] hover:border-[oklch(0.52_0.28_285/0.5)] transition-all duration-200"
               >
                 <SiFacebook size={16} />
               </a>
@@ -51,7 +51,7 @@ export default function Footer() {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-lg bg-[oklch(0.14_0.014_15)] border border-[oklch(0.22_0.02_15)] text-muted-foreground hover:text-[oklch(0.68_0.24_25)] hover:border-[oklch(0.55_0.24_25/0.5)] transition-all duration-200"
+                className="p-2.5 rounded-lg bg-[oklch(0.14_0.015_270)] border border-[oklch(0.22_0.025_270)] text-muted-foreground hover:text-[oklch(0.72_0.22_220)] hover:border-[oklch(0.52_0.28_285/0.5)] transition-all duration-200"
               >
                 <SiLinkedin size={16} />
               </a>
@@ -59,7 +59,7 @@ export default function Footer() {
                 href="https://x.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-lg bg-[oklch(0.14_0.014_15)] border border-[oklch(0.22_0.02_15)] text-muted-foreground hover:text-[oklch(0.68_0.24_25)] hover:border-[oklch(0.55_0.24_25/0.5)] transition-all duration-200"
+                className="p-2.5 rounded-lg bg-[oklch(0.14_0.015_270)] border border-[oklch(0.22_0.025_270)] text-muted-foreground hover:text-[oklch(0.72_0.22_220)] hover:border-[oklch(0.52_0.28_285/0.5)] transition-all duration-200"
               >
                 <SiX size={16} />
               </a>
@@ -68,7 +68,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-heading font-semibold text-sm uppercase tracking-widest text-[oklch(0.68_0.24_25)] mb-4">
+            <h3 className="font-heading font-semibold text-sm uppercase tracking-widest text-[oklch(0.72_0.22_220)] mb-4">
               Quick Links
             </h3>
             <ul className="space-y-2.5">
@@ -84,7 +84,7 @@ export default function Footer() {
                     to={link.to}
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 flex items-center gap-1.5 group"
                   >
-                    <span className="w-1 h-1 rounded-full bg-[oklch(0.55_0.24_25)] group-hover:w-2 transition-all duration-200" />
+                    <span className="w-1 h-1 rounded-full bg-[oklch(0.52_0.28_285)] group-hover:w-2 transition-all duration-200" />
                     {link.label}
                   </Link>
                 </li>
@@ -94,32 +94,32 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="font-heading font-semibold text-sm uppercase tracking-widest text-[oklch(0.68_0.24_25)] mb-4">
+            <h3 className="font-heading font-semibold text-sm uppercase tracking-widest text-[oklch(0.72_0.22_220)] mb-4">
               Contact
             </h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <Mail
                   size={15}
-                  className="text-[oklch(0.68_0.24_25)] mt-0.5 shrink-0"
+                  className="text-[oklch(0.72_0.22_220)] mt-0.5 shrink-0"
                 />
                 <span className="text-sm text-muted-foreground">
-                  hello@nextyusolution.com
+                  nextyusolution@gmail.com
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <Phone
                   size={15}
-                  className="text-[oklch(0.68_0.24_25)] mt-0.5 shrink-0"
+                  className="text-[oklch(0.72_0.22_220)] mt-0.5 shrink-0"
                 />
                 <span className="text-sm text-muted-foreground">
-                  +1 234 567 890
+                  +91 9360193948
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin
                   size={15}
-                  className="text-[oklch(0.68_0.24_25)] mt-0.5 shrink-0"
+                  className="text-[oklch(0.72_0.22_220)] mt-0.5 shrink-0"
                 />
                 <span className="text-sm text-muted-foreground">
                   Remote — Worldwide
@@ -130,7 +130,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-6 border-t border-[oklch(0.22_0.02_15)] flex flex-col sm:flex-row justify-between items-center gap-3">
+        <div className="mt-12 pt-6 border-t border-[oklch(0.22_0.025_270)] flex flex-col sm:flex-row justify-between items-center gap-3">
           <p className="text-sm text-muted-foreground">
             © {year} NextYU Solution. All rights reserved.
           </p>

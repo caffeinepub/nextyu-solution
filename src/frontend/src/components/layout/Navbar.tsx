@@ -31,7 +31,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[oklch(0.08_0.008_15/0.95)] backdrop-blur-xl border-b border-[oklch(0.22_0.02_15)]"
+          ? "bg-[oklch(0.07_0.01_270/0.95)] backdrop-blur-xl border-b border-[oklch(0.22_0.025_270)]"
           : "bg-transparent"
       }`}
     >
@@ -43,9 +43,9 @@ export default function Navbar() {
           data-ocid="nav.home_link"
         >
           <img
-            src="/assets/generated/logo-mark-transparent.dim_200x200.png"
+            src="/assets/uploads/WhatsApp-Image-2026-03-06-at-23.36.51-1.jpeg"
             alt="NextYU Solution"
-            className="w-8 h-8 object-contain"
+            className="w-10 h-10 object-contain rounded-lg"
           />
           <span className="font-display font-bold text-lg tracking-tight">
             <span className="gradient-text">NextYU</span>
@@ -64,8 +64,8 @@ export default function Navbar() {
                 data-ocid={link.ocid}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
                   isActive
-                    ? "text-[oklch(0.68_0.24_25)] bg-[oklch(0.55_0.24_25/0.12)]"
-                    : "text-foreground/70 hover:text-foreground hover:bg-[oklch(0.55_0.24_25/0.08)]"
+                    ? "text-[oklch(0.72_0.22_220)] bg-[oklch(0.52_0.28_285/0.12)]"
+                    : "text-foreground/70 hover:text-foreground hover:bg-[oklch(0.52_0.28_285/0.08)]"
                 }`}
               >
                 {link.label}
@@ -85,7 +85,7 @@ export default function Navbar() {
         {/* Mobile toggle */}
         <button
           type="button"
-          className="md:hidden p-2 rounded-lg text-foreground/70 hover:text-foreground hover:bg-[oklch(0.55_0.24_25/0.1)] transition-colors"
+          className="md:hidden p-2 rounded-lg text-foreground/70 hover:text-foreground hover:bg-[oklch(0.52_0.28_285/0.1)] transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
           data-ocid="nav.mobile_toggle"
@@ -96,7 +96,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-[oklch(0.1_0.01_15/0.98)] backdrop-blur-xl border-b border-[oklch(0.22_0.02_15)] px-6 pb-6 pt-2">
+        <div className="md:hidden bg-[oklch(0.09_0.012_270/0.98)] backdrop-blur-xl border-b border-[oklch(0.22_0.025_270)] px-6 pb-6 pt-2">
           <div className="flex flex-col gap-1">
             {NAV_LINKS.map((link) => {
               const isActive = location.pathname === link.to;
@@ -107,8 +107,8 @@ export default function Navbar() {
                   data-ocid={link.ocid}
                   className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                     isActive
-                      ? "text-[oklch(0.68_0.24_25)] bg-[oklch(0.55_0.24_25/0.12)]"
-                      : "text-foreground/70 hover:text-foreground hover:bg-[oklch(0.55_0.24_25/0.08)]"
+                      ? "text-[oklch(0.72_0.22_220)] bg-[oklch(0.52_0.28_285/0.12)]"
+                      : "text-foreground/70 hover:text-foreground hover:bg-[oklch(0.52_0.28_285/0.08)]"
                   }`}
                 >
                   {link.label}

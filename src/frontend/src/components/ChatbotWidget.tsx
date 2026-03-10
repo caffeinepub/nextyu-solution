@@ -79,11 +79,11 @@ export default function ChatbotWidget() {
             className="w-80 sm:w-96 rounded-2xl overflow-hidden shadow-2xl"
             style={{
               background:
-                "linear-gradient(135deg, oklch(0.12 0.015 15), oklch(0.08 0.01 15))",
-              border: "1px solid oklch(0.25 0.03 15)",
+                "linear-gradient(135deg, oklch(0.12 0.015 270), oklch(0.08 0.01 270))",
+              border: "1px solid oklch(0.25 0.03 270)",
               backdropFilter: "blur(20px)",
               boxShadow:
-                "0 25px 60px oklch(0 0 0 / 0.6), 0 0 0 1px oklch(0.55 0.24 25 / 0.1)",
+                "0 25px 60px oklch(0 0 0 / 0.6), 0 0 0 1px oklch(0.52 0.28 285 / 0.1)",
             }}
           >
             {/* Header */}
@@ -91,8 +91,8 @@ export default function ChatbotWidget() {
               className="px-4 py-3.5 flex items-center gap-3"
               style={{
                 background:
-                  "linear-gradient(90deg, oklch(0.45 0.24 25), oklch(0.38 0.22 15))",
-                borderBottom: "1px solid oklch(0.3 0.04 15)",
+                  "linear-gradient(90deg, oklch(0.45 0.28 220), oklch(0.38 0.26 285))",
+                borderBottom: "1px solid oklch(0.3 0.04 270)",
               }}
             >
               <div className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center flex-shrink-0">
@@ -132,17 +132,17 @@ export default function ChatbotWidget() {
                 <div
                   className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
                   style={{
-                    background: "oklch(0.45 0.24 25 / 0.2)",
-                    border: "1px solid oklch(0.55 0.24 25 / 0.4)",
+                    background: "oklch(0.45 0.28 220 / 0.2)",
+                    border: "1px solid oklch(0.52 0.28 285 / 0.4)",
                   }}
                 >
-                  <Bot size={13} style={{ color: "oklch(0.78 0.18 35)" }} />
+                  <Bot size={13} style={{ color: "oklch(0.78 0.18 220)" }} />
                 </div>
                 <div
                   className="rounded-2xl rounded-tl-sm px-3.5 py-2.5 max-w-[85%]"
                   style={{
-                    background: "oklch(0.16 0.018 15)",
-                    border: "1px solid oklch(0.25 0.03 15)",
+                    background: "oklch(0.16 0.018 270)",
+                    border: "1px solid oklch(0.25 0.03 270)",
                   }}
                 >
                   <p className="text-sm text-white/90 leading-relaxed">
@@ -172,9 +172,9 @@ export default function ChatbotWidget() {
                         whileTap={{ scale: 0.97 }}
                         className="text-left text-sm px-3.5 py-2 rounded-xl font-medium transition-all duration-150"
                         style={{
-                          background: "oklch(0.14 0.016 15)",
-                          border: "1px solid oklch(0.55 0.24 25 / 0.3)",
-                          color: "oklch(0.78 0.18 35)",
+                          background: "oklch(0.14 0.016 270)",
+                          border: "1px solid oklch(0.52 0.28 285 / 0.3)",
+                          color: "oklch(0.78 0.18 220)",
                         }}
                       >
                         {option.label}
@@ -201,7 +201,7 @@ export default function ChatbotWidget() {
                         className="rounded-2xl rounded-tr-sm px-3.5 py-2.5 max-w-[80%]"
                         style={{
                           background:
-                            "linear-gradient(135deg, oklch(0.45 0.24 25), oklch(0.38 0.22 15))",
+                            "linear-gradient(135deg, oklch(0.45 0.28 220), oklch(0.38 0.26 285))",
                         }}
                       >
                         <p className="text-sm text-white font-medium">
@@ -220,20 +220,20 @@ export default function ChatbotWidget() {
                       <div
                         className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
                         style={{
-                          background: "oklch(0.45 0.24 25 / 0.2)",
-                          border: "1px solid oklch(0.55 0.24 25 / 0.4)",
+                          background: "oklch(0.45 0.28 220 / 0.2)",
+                          border: "1px solid oklch(0.52 0.28 285 / 0.4)",
                         }}
                       >
                         <Bot
                           size={13}
-                          style={{ color: "oklch(0.78 0.18 35)" }}
+                          style={{ color: "oklch(0.78 0.18 220)" }}
                         />
                       </div>
                       <div
                         className="rounded-2xl rounded-tl-sm px-3.5 py-2.5 max-w-[85%]"
                         style={{
-                          background: "oklch(0.16 0.018 15)",
-                          border: "1px solid oklch(0.25 0.03 15)",
+                          background: "oklch(0.16 0.018 270)",
+                          border: "1px solid oklch(0.25 0.03 270)",
                         }}
                       >
                         <p className="text-sm text-white/90 leading-relaxed">
@@ -270,7 +270,7 @@ export default function ChatbotWidget() {
                         data-ocid="chatbot.reset_button"
                         className="text-xs text-center py-1.5 rounded-lg transition-colors duration-150"
                         style={{
-                          color: "oklch(0.6 0.05 15)",
+                          color: "oklch(0.6 0.05 270)",
                         }}
                       >
                         ← Ask something else
@@ -284,9 +284,9 @@ export default function ChatbotWidget() {
             {/* Footer hint */}
             <div
               className="px-4 py-2.5 text-center"
-              style={{ borderTop: "1px solid oklch(0.2 0.02 15)" }}
+              style={{ borderTop: "1px solid oklch(0.2 0.02 270)" }}
             >
-              <p className="text-xs" style={{ color: "oklch(0.45 0.04 15)" }}>
+              <p className="text-xs" style={{ color: "oklch(0.45 0.04 270)" }}>
                 Powered by NextYU Solution
               </p>
             </div>
@@ -307,9 +307,9 @@ export default function ChatbotWidget() {
         className="w-14 h-14 rounded-full flex items-center justify-center shadow-2xl relative"
         style={{
           background:
-            "linear-gradient(135deg, oklch(0.55 0.24 25), oklch(0.42 0.22 15))",
+            "linear-gradient(135deg, oklch(0.55 0.26 220), oklch(0.42 0.28 285))",
           boxShadow:
-            "0 8px 30px oklch(0.55 0.24 25 / 0.5), 0 2px 8px oklch(0 0 0 / 0.4)",
+            "0 8px 30px oklch(0.55 0.26 220 / 0.5), 0 2px 8px oklch(0 0 0 / 0.4)",
         }}
       >
         <AnimatePresence mode="wait">
@@ -347,7 +347,7 @@ export default function ChatbotWidget() {
               ease: "easeInOut",
             }}
             style={{
-              background: "oklch(0.55 0.24 25 / 0.25)",
+              background: "oklch(0.55 0.26 220 / 0.25)",
               pointerEvents: "none",
             }}
           />

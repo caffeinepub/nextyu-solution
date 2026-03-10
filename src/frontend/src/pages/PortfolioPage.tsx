@@ -94,10 +94,10 @@ const PROJECTS = [
 const FILTERS: FilterType[] = ["All", "Design", "Video", "Web"];
 
 const FILTER_COLORS: Record<FilterType, string> = {
-  All: "oklch(0.68 0.24 25)",
-  Design: "oklch(0.72 0.2 40)",
-  Video: "oklch(0.65 0.22 10)",
-  Web: "oklch(0.72 0.18 55)",
+  All: "oklch(0.72 0.22 220)",
+  Design: "oklch(0.62 0.28 330)",
+  Video: "oklch(0.52 0.28 285)",
+  Web: "oklch(0.65 0.22 260)",
 };
 
 function AnimatedSection({
@@ -138,9 +138,9 @@ export default function PortfolioPage() {
     <main className="pt-16">
       {/* ===== PAGE HERO ===== */}
       <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[oklch(0.06_0.01_15)] to-[oklch(0.08_0.008_15)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[oklch(0.06_0.01_270)] to-[oklch(0.08_0.01_270)]" />
         <div className="absolute inset-0 grid-bg opacity-30" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] blur-[150px] bg-[oklch(0.55_0.24_25/0.08)] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] blur-[150px] bg-[oklch(0.52_0.28_285/0.08)] pointer-events-none" />
 
         <div className="relative container mx-auto px-6 max-w-5xl text-center">
           <motion.div
@@ -148,7 +148,7 @@ export default function PortfolioPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[oklch(0.55_0.24_25/0.15)] border border-[oklch(0.55_0.24_25/0.3)] text-[oklch(0.78_0.18_35)] text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[oklch(0.52_0.28_285/0.15)] border border-[oklch(0.52_0.28_285/0.3)] text-[oklch(0.78_0.18_220)] text-sm font-medium mb-6">
               Selected Work
             </div>
             <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-6">
@@ -219,9 +219,9 @@ export default function PortfolioPage() {
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.08_0.008_15/0.8)] to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.08_0.01_270/0.8)] to-transparent" />
                     {/* Hover overlay */}
-                    <div className="absolute inset-0 bg-[oklch(0.55_0.24_25/0.1)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-[oklch(0.52_0.28_285/0.1)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
                         <ExternalLink size={16} className="text-white" />
                       </div>
@@ -253,7 +253,7 @@ export default function PortfolioPage() {
                         <Badge
                           key={tag}
                           variant="secondary"
-                          className="text-xs bg-[oklch(0.18_0.015_15)] text-muted-foreground border-0"
+                          className="text-xs bg-[oklch(0.18_0.018_270)] text-muted-foreground border-0"
                         >
                           {tag}
                         </Badge>
@@ -268,8 +268,8 @@ export default function PortfolioPage() {
       </section>
 
       {/* ===== CTA ===== */}
-      <section className="py-20 bg-[oklch(0.09_0.009_15)] relative overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[oklch(0.55_0.24_25/0.6)] to-transparent" />
+      <section className="py-20 bg-[oklch(0.09_0.012_270)] relative overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[oklch(0.52_0.28_285/0.6)] to-transparent" />
         <div className="container mx-auto px-6 max-w-3xl text-center">
           <AnimatedSection>
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-6">

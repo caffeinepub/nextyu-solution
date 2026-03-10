@@ -30,8 +30,8 @@ const BUTTONS: FloatingButton[] = [
     icon: Phone,
     label: "Call Us",
     href: "tel:+919360193948",
-    color: "oklch(0.78 0.18 35)",
-    bgColor: "oklch(0.55 0.24 25)",
+    color: "oklch(0.78 0.18 220)",
+    bgColor: "oklch(0.62 0.22 220)",
     ocid: "floating.phone_button",
     newTab: false,
   },
@@ -40,8 +40,8 @@ const BUTTONS: FloatingButton[] = [
     icon: Mail,
     label: "Email Us",
     href: "mailto:nextyusolution@gmail.com",
-    color: "oklch(0.75 0.15 60)",
-    bgColor: "oklch(0.55 0.22 40)",
+    color: "oklch(0.75 0.15 285)",
+    bgColor: "oklch(0.52 0.28 285)",
     ocid: "floating.email_button",
     newTab: false,
   },
@@ -99,13 +99,17 @@ export default function FloatingContactButtons() {
             ? "oklch(0.55 0.18 145 / 0.6)"
             : btn.id === "instagram"
               ? "oklch(0.55 0.22 350 / 0.6)"
-              : "oklch(0.55 0.24 25 / 0.6)";
+              : btn.id === "phone"
+                ? "oklch(0.62 0.22 220 / 0.6)"
+                : "oklch(0.52 0.28 285 / 0.6)";
         const glowColor =
           btn.id === "whatsapp"
             ? "oklch(0.55 0.18 145 / 0.35)"
             : btn.id === "instagram"
               ? "oklch(0.55 0.22 350 / 0.35)"
-              : "oklch(0.55 0.24 25 / 0.35)";
+              : btn.id === "phone"
+                ? "oklch(0.62 0.22 220 / 0.35)"
+                : "oklch(0.52 0.28 285 / 0.35)";
 
         return (
           <motion.div
@@ -125,8 +129,8 @@ export default function FloatingContactButtons() {
                   transition={{ duration: 0.15 }}
                   className="absolute left-14 whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-semibold text-white pointer-events-none shadow-lg"
                   style={{
-                    background: "oklch(0.14 0.014 15 / 0.95)",
-                    border: "1px solid oklch(0.25 0.03 15)",
+                    background: "oklch(0.12 0.015 270 / 0.95)",
+                    border: "1px solid oklch(0.25 0.03 270)",
                     backdropFilter: "blur(12px)",
                   }}
                 >
@@ -135,8 +139,8 @@ export default function FloatingContactButtons() {
                   <span
                     className="absolute top-1/2 -translate-y-1/2 -left-1.5 w-2.5 h-2.5 rotate-45"
                     style={{
-                      background: "oklch(0.14 0.014 15 / 0.95)",
-                      border: "1px solid oklch(0.25 0.03 15)",
+                      background: "oklch(0.12 0.015 270 / 0.95)",
+                      border: "1px solid oklch(0.25 0.03 270)",
                       borderRight: "none",
                       borderTop: "none",
                     }}
@@ -157,7 +161,7 @@ export default function FloatingContactButtons() {
               className="w-12 h-12 rounded-full flex items-center justify-center shadow-xl"
               style={{
                 background:
-                  "radial-gradient(circle at 35% 35%, oklch(0.22 0.02 15), oklch(0.1 0.01 15))",
+                  "radial-gradient(circle at 35% 35%, oklch(0.22 0.025 270), oklch(0.09 0.012 270))",
                 border: `2px solid ${borderColor}`,
                 backdropFilter: "blur(12px)",
                 boxShadow: isHovered
